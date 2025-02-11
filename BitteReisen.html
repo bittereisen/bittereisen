@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sweepstakes Entry - $500 Airfare Voucher</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+  <header class="bg-blue-600 text-white py-4">
+    <h1 class="text-3xl font-bold text-center">Enter to Win a $500 Airfare Voucher!</h1>
+  </header>
+
+  <main class="container mx-auto mt-8 p-6 bg-white rounded-xl shadow-md max-w-lg">
+    <p class="text-gray-700 text-center mb-4">
+      Fill in the form below for your chance to win a $500 airfare voucher!
+    </p>
+
+    <form id="sweepstakes-form" class="space-y-4">
+      <div>
+        <label for="name" class="block text-sm font-medium text-gray-700">Name:</label>
+        <input type="text" id="name" name="name" class="mt-1 block w-full p-2 border rounded-md" placeholder="John Doe" required>
+      </div>
+
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email:</label>
+        <input type="email" id="email" name="email" class="mt-1 block w-full p-2 border rounded-md" placeholder="you@example.com" required>
+      </div>
+
+      <div>
+        <label for="terms" class="inline-flex items-center">
+          <input type="checkbox" id="terms" class="mr-2" required>
+          I agree to the <a href="#" class="text-blue-600 hover:underline">Terms & Conditions</a>
+        </label>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 transition">
+        Enter Sweepstakes
+      </button>
+    </form>
+
+    <div id="success-message" class="mt-4 hidden p-4 bg-green-100 text-green-700 rounded-md">
+      Thank you for entering the sweepstakes! Best of luck!
+    </div>
+  </main>
+
+  <footer class="mt-8 text-center text-gray-600 text-sm">
+    &copy; 2025 Sweepstakes Company. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('sweepstakes-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Get user input
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+
+      // Simple form validation (extra server-side validation recommended)
+      if (name.trim() === '' || email.trim() === '') {
+        alert('Please fill in all required fields.');
+        return;
+      }
+
+      // Simulate a successful entry
+      document.getElementById('sweepstakes-form').classList.add('hidden');
+      document.getElementById('success-message').classList.remove('hidden');
+
+      // Optionally, store user data (in a real app, submit to server or database)
+      console.log(`Name: ${name}, Email: ${email}`);
+    });
+  </script>
+</body>
+</html>
