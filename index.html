@@ -6,12 +6,24 @@
   <title>Enter to Win a $500 Airfare Voucher</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    /* Custom styles for a more BOTB-like design */
+    /* Custom styles for a more professional, yet dynamic design */
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
     .hero-image {
-      background-image: url('images/Front_Page_Travel_Pic.jpeg'); /* Updated with your image */
+      background-image: url('images/Front_Page_Travel_Pic.jpeg');
       background-size: cover;
       background-position: center;
       height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .hero-text {
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Softer shadow */
+      color: white;
     }
 
     .cta-button {
@@ -22,6 +34,9 @@
       font-weight: bold;
       border-radius: 8px;
       transition: background-color 0.3s ease;
+      width: auto;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .cta-button:hover {
@@ -34,120 +49,193 @@
       padding: 40px 0;
     }
 
-    /* New Coming Soon Section */
+    /* Coming Soon Section */
     .coming-soon {
-      background-color: #ff00ff; /* Bright fluorescent pink */
-      color: #ffffff; /* Bright yellow text */
-      padding: 20px;
-      font-size: 24px;
+      background-color: #f6f6f6; /* Subtle background color */
+      color: #333;
+      padding: 30px 40px;
+      font-size: 22px;
       font-weight: bold;
       text-align: center;
       text-transform: uppercase;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .fine-print {
-      font-size: 12px;
-      color: #1d1d1a; /* Yellow color for fine print */
+      font-size: 14px;
+      color: #999; /* More subtle fine print */
       margin-top: 10px;
     }
 
     /* Email Signup Form Styles */
     .email-signup {
-      background-color: #666eae; /* Bright green for email section */
-      color: black;
-      padding: 20px;
+      background-color: #ffffff;
+      padding: 30px;
       text-align: center;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
     }
 
     .email-input {
       padding: 12px;
       border-radius: 8px;
-      border: 2px solid #738abbb5; /* Border to match the bright color theme */
+      border: 2px solid #00aaff; /* Border color to match CTA button */
       font-size: 16px;
       margin-top: 10px;
+      width: 100%;
+      max-width: 400px; /* Restrict width for a cleaner look */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .email-button {
-      background-color: #ff00ff; /* Bright pink */
+      background-color: #00aaff;
       color: white;
       padding: 12px 24px;
       border-radius: 8px;
       font-weight: bold;
       transition: background-color 0.3s ease;
       margin-top: 10px;
+      width: 100%;
+      max-width: 400px; /* Restrict width for a cleaner look */
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .email-button:hover {
-      background-color: #ff00cc;
+      background-color: #0077cc;
     }
 
+    /* Main content area */
+    .main-content {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 40px;
+    }
+
+    .main-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .form-section {
+      margin-top: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      margin-top: 8px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .form-checkbox input {
+      margin-right: 8px;
+    }
+
+    .form-checkbox label {
+      font-size: 14px;
+    }
+
+    .form-submit-btn {
+      background-color: #00aaff;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s ease;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .form-submit-btn:hover {
+      background-color: #0077cc;
+    }
+
+    .success-message {
+      background-color: #e0f7fa;
+      color: #00796b;
+      padding: 15px;
+      border-radius: 8px;
+      display: none;
+      margin-top: 20px;
+    }
   </style>
 </head>
 <body class="bg-gray-100">
 
   <!-- Hero Section -->
-  <section class="hero-image text-center flex items-center justify-center bg-blue-900 bg-opacity-50 text-white">
-    <div>
+  <section class="hero-image">
+    <div class="hero-text text-center">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
       <p class="text-xl mt-4">Enter now for a chance to fly anywhere you want.</p>
     </div>
   </section>
 
   <!-- Coming Soon Section -->
-  <section class="coming-soon mt-8 mx-4 p-4">
+  <section class="coming-soon mt-8 mx-4">
     <h2>Coming Soon!</h2>
-    <p>Entries are only $0.50 to $5.00</p>
+    <p>Entries start at only $0.50</p>
     <p class="fine-print">Complete a profile to enter for free!</p>
   </section>
 
   <!-- Email Signup Section -->
-  <section class="email-signup mt-8 mx-4 p-6">
-    <h2 class="text-3xl font-bold">Get Notified When We Launch!</h2>
+  <section class="email-signup">
+    <h2 class="text-3xl font-bold">Sign Up to Know When It Goes Live!</h2>
     <p class="mt-4">Sign up with your email below and be the first to know about the sweepstakes.</p>
     <form id="email-signup-form" class="mt-4">
-      <input type="email" id="email" class="email-input w-full" placeholder="Enter your email" required>
-      <button type="submit" class="email-button w-full">Sign Up</button>
+      <input type="email" id="email" class="email-input" placeholder="Enter your email" required>
+      <button type="submit" class="email-button">Sign Up</button>
     </form>
   </section>
 
   <!-- Main Content -->
-  <main class="container mx-auto mt-8 p-6 bg-white rounded-xl shadow-md max-w-lg">
-
-    <!-- Sweepstakes Info Section -->
-    <div class="text-center mb-8">
-      <h2 class="text-2xl font-bold mb-2">How to Enter</h2>
-      <p class="text-gray-700">Complete the form below for a chance to win a $500 airfare voucher to your dream destination. It’s that simple!</p>
+  <main class="container mx-auto mt-8 p-6 max-w-lg main-content">
+    <div class="text-center">
+      <h2 class="main-title">How to Enter</h2>
+      <p>Complete the form below for a chance to win a $500 airfare voucher to your dream destination.</p>
     </div>
 
-    <!-- Sweepstakes Form -->
-    <form id="sweepstakes-form" class="space-y-4">
+    <form id="sweepstakes-form" class="form-section">
       <div>
-        <label for="name" class="block text-sm font-medium text-gray-700">Full Name:</label>
-        <input type="text" id="name" name="name" class="mt-1 block w-full p-2 border rounded-md" placeholder="John Doe" required>
+        <label for="name" class="text-sm font-medium">Full Name:</label>
+        <input type="text" id="name" name="name" placeholder="John Doe" required>
       </div>
 
       <div>
-        <label for="email" class="block text-sm font-medium text-gray-700">Email Address:</label>
-        <input type="email" id="email" name="email" class="mt-1 block w-full p-2 border rounded-md" placeholder="you@example.com" required>
+        <label for="email" class="text-sm font-medium">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
       </div>
 
-      <div class="flex items-center">
-        <input type="checkbox" id="terms" class="mr-2" required>
-        <label for="terms" class="text-sm">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms & Conditions</a></label>
+      <div class="form-checkbox">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">I agree to the <a href="#" class="text-blue-600 hover:underline">Terms & Conditions</a></label>
       </div>
 
-      <button type="submit" class="cta-button w-full">Enter Sweepstakes</button>
+      <button type="submit" class="form-submit-btn">Enter Sweepstakes</button>
     </form>
 
     <!-- Success Message -->
-    <div id="success-message" class="mt-4 hidden p-4 bg-green-100 text-green-700 rounded-md">
+    <div id="success-message" class="success-message">
       Thank you for entering! Best of luck on your flight voucher win!
     </div>
-
   </main>
 
   <!-- Footer -->
