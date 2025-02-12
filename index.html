@@ -8,7 +8,7 @@
   <style>
     /* Custom styles for a more BOTB-like design */
     .hero-image {
-      background-image: url('https://via.placeholder.com/1920x800'); /* Replace with your own image */
+      background-image: url('https://via.placeholder.com/1920x800'); /* Replace with a real stock image URL */
       background-size: cover;
       background-position: center;
       height: 400px;
@@ -105,6 +105,19 @@
       document.getElementById('success-message').classList.remove('hidden');
 
       // Optionally, store user data (in a real app, submit to server or database)
+      // Example of sending data to a server using Fetch API
+      fetch('YOUR_SERVER_URL', {  // Replace with your server endpoint
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name: name, email: email })
+      })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch((error) => console.error('Error:', error));
+      
+      // Log to console for now (to verify input data)
       console.log(`Name: ${name}, Email: ${email}`);
     });
   </script>
