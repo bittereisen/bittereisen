@@ -10,30 +10,45 @@
     /* Apply Poppins font for modern look */
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f9fafb; /* Lighter background color */
+      background-color: #f9fafb; /* Light background for the page */
       color: #333; /* Darker text for contrast */
+      margin: 0;
+      padding: 0;
     }
 
-    /* Hero Section */
-    .hero-image {
+    /* Full-screen Hero Section */
+    .hero {
       background-image: url('images/Front_Page_Travel_Pic.jpeg');
       background-size: cover;
       background-position: center;
-      height: 400px;
+      height: 100vh; /* Full viewport height */
       display: flex;
       justify-content: center;
       align-items: center;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    /* Dark overlay for text contrast */
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
     }
 
     .hero-text {
-      color: white;
-      text-align: center;
-      font-size: 2rem;
+      z-index: 1; /* Bring text above the overlay */
+      font-size: 2.5rem;
       font-weight: 700;
+      margin: 0;
+      max-width: 800px;
+      padding: 0 20px;
     }
 
-    /* Button Styles */
     .cta-button {
       background-color: #00aaff;
       color: white;
@@ -49,57 +64,20 @@
       background-color: #0077cc;
     }
 
-    /* Email Signup Section */
-    .email-signup {
+    /* Main Content Sections */
+    .main-content {
       background-color: #ffffff;
-      padding: 30px;
+      padding: 50px;
       text-align: center;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 40px;
-    }
-
-    .email-input {
-      padding: 12px;
-      border-radius: 8px;
-      border: 2px solid #00aaff;
-      font-size: 16px;
-      margin-top: 10px;
-      width: 100%;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .email-button {
-      background-color: #00aaff;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
-      margin-top: 10px;
-      width: 100%;
-      max-width: 400px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .email-button:hover {
-      background-color: #0077cc;
-    }
-
-    /* Main Content Area */
-    .main-content {
-      background-color: #ffffff;
-      padding: 30px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 40px;
+      margin-top: -50px;
+      position: relative;
+      z-index: 1;
     }
 
     .main-title {
-      font-size: 28px;
+      font-size: 2rem;
       font-weight: 600;
       color: #333;
       margin-bottom: 20px;
@@ -158,12 +136,23 @@
       display: none;
       margin-top: 20px;
     }
+
+    /* Footer */
+    footer {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
-  <section class="hero-image">
+  <!-- Hero Section (Full Screen) -->
+  <section class="hero">
+    <div class="hero-overlay"></div> <!-- Dark overlay for text contrast -->
     <div class="hero-text">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
       <p class="text-xl mt-4">Enter now for a chance to fly anywhere you want.</p>
@@ -172,12 +161,12 @@
   </section>
 
   <!-- Email Signup Section -->
-  <section class="email-signup">
-    <h2 class="text-3xl font-bold">Sign Up to Know When It Goes Live!</h2>
-    <p class="mt-4">Sign up with your email below and be the first to know about the sweepstakes.</p>
+  <section class="main-content">
+    <h2 class="main-title">Sign Up to Know When It Goes Live!</h2>
+    <p>Sign up with your email below and be the first to know about the sweepstakes.</p>
     <form id="email-signup-form" class="mt-4">
       <input type="email" id="email" class="email-input" placeholder="Enter your email" required>
-      <button type="submit" class="email-button">Sign Up</button>
+      <button type="submit" class="cta-button">Sign Up</button>
     </form>
   </section>
 
@@ -214,7 +203,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer text-center py-4 bg-white shadow-lg">
+  <footer>
     <p>&copy; 2025 BitteReisen, LLC. All rights reserved.</p>
   </footer>
 
@@ -237,3 +226,4 @@
 
 </body>
 </html>
+
