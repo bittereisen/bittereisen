@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Enter to Win a $500 Airfare Voucher</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!-- Import Poppins Font -->
   <style>
-    /* Custom styles for a more professional, yet dynamic design */
+    /* Apply Poppins font for modern look */
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9fafb; /* Lighter background color */
+      color: #333; /* Darker text for contrast */
     }
 
+    /* Hero Section */
     .hero-image {
       background-image: url('images/Front_Page_Travel_Pic.jpeg');
       background-size: cover;
@@ -19,56 +23,33 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow for readability */
     }
 
     .hero-text {
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); /* Softer shadow */
       color: white;
+      text-align: center;
+      font-size: 2rem;
+      font-weight: 700;
     }
 
+    /* Button Styles */
     .cta-button {
       background-color: #00aaff;
       color: white;
       padding: 12px 24px;
       font-size: 18px;
-      font-weight: bold;
+      font-weight: 600;
       border-radius: 8px;
       transition: background-color 0.3s ease;
-      width: auto;
-      margin: 0 auto;
-      text-align: center;
+      margin-top: 20px;
     }
 
     .cta-button:hover {
       background-color: #0077cc;
     }
 
-    .footer {
-      background-color: #111;
-      color: #fff;
-      padding: 40px 0;
-    }
-
-    /* Coming Soon Section */
-    .coming-soon {
-      background-color: #f6f6f6; /* Subtle background color */
-      color: #333;
-      padding: 30px 40px;
-      font-size: 22px;
-      font-weight: bold;
-      text-align: center;
-      text-transform: uppercase;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .fine-print {
-      font-size: 14px;
-      color: #999; /* More subtle fine print */
-      margin-top: 10px;
-    }
-
-    /* Email Signup Form Styles */
+    /* Email Signup Section */
     .email-signup {
       background-color: #ffffff;
       padding: 30px;
@@ -81,11 +62,11 @@
     .email-input {
       padding: 12px;
       border-radius: 8px;
-      border: 2px solid #00aaff; /* Border color to match CTA button */
+      border: 2px solid #00aaff;
       font-size: 16px;
       margin-top: 10px;
       width: 100%;
-      max-width: 400px; /* Restrict width for a cleaner look */
+      max-width: 400px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -95,11 +76,11 @@
       color: white;
       padding: 12px 24px;
       border-radius: 8px;
-      font-weight: bold;
+      font-weight: 600;
       transition: background-color 0.3s ease;
       margin-top: 10px;
       width: 100%;
-      max-width: 400px; /* Restrict width for a cleaner look */
+      max-width: 400px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -108,7 +89,7 @@
       background-color: #0077cc;
     }
 
-    /* Main content area */
+    /* Main Content Area */
     .main-content {
       background-color: #ffffff;
       padding: 30px;
@@ -119,7 +100,7 @@
 
     .main-title {
       font-size: 28px;
-      font-weight: 700;
+      font-weight: 600;
       color: #333;
       margin-bottom: 20px;
     }
@@ -158,7 +139,7 @@
       color: white;
       padding: 12px 24px;
       border-radius: 8px;
-      font-weight: bold;
+      font-weight: 600;
       text-align: center;
       transition: background-color 0.3s ease;
       width: 100%;
@@ -179,21 +160,15 @@
     }
   </style>
 </head>
-<body class="bg-gray-100">
+<body>
 
   <!-- Hero Section -->
   <section class="hero-image">
-    <div class="hero-text text-center">
+    <div class="hero-text">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
       <p class="text-xl mt-4">Enter now for a chance to fly anywhere you want.</p>
+      <button class="cta-button">Enter Sweepstakes</button>
     </div>
-  </section>
-
-  <!-- Coming Soon Section -->
-  <section class="coming-soon mt-8 mx-4">
-    <h2>Coming Soon!</h2>
-    <p>Entries start at only $0.50</p>
-    <p class="fine-print">Complete a profile to enter for free!</p>
   </section>
 
   <!-- Email Signup Section -->
@@ -206,7 +181,7 @@
     </form>
   </section>
 
-  <!-- Main Content -->
+  <!-- Main Content Section -->
   <main class="container mx-auto mt-8 p-6 max-w-lg main-content">
     <div class="text-center">
       <h2 class="main-title">How to Enter</h2>
@@ -239,7 +214,7 @@
   </main>
 
   <!-- Footer -->
-  <footer class="footer text-center">
+  <footer class="footer text-center py-4 bg-white shadow-lg">
     <p>&copy; 2025 BitteReisen, LLC. All rights reserved.</p>
   </footer>
 
