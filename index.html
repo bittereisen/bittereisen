@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Win a $500 Airfare Voucher | BitteReisen Sweepstakes</title>
+  <title>Win a $500 Airfare Voucher | BitteReisen</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -58,20 +58,12 @@
       background-color: #0056b3;
     }
 
-    .promo-box {
-      background-color: #ebf8ff;
-      padding: 20px;
-      margin: 20px auto;
-      text-align: center;
-      border-radius: 10px;
-      max-width: 700px;
-    }
-
     .main-content {
       background-color: #ffffff;
       padding: 40px;
       text-align: center;
       border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       max-width: 600px;
       margin: 50px auto;
     }
@@ -83,6 +75,7 @@
       border: 2px solid #ddd;
       margin-top: 10px;
       font-size: 16px;
+      color: #333;
     }
 
     .form-submit-btn {
@@ -100,17 +93,32 @@
       background-color: #0056b3;
     }
 
-    .success-message {
-      display: none;
-      color: #28a745;
-      font-weight: bold;
-      margin-top: 10px;
+    .destinations {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #eef2ff;
+    }
+
+    .destination-images {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .destination-images img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
     }
 
     footer {
       background-color: #ffffff;
       padding: 20px;
       text-align: center;
+      box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
@@ -121,49 +129,33 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
-      <p class="text-lg font-semibold mt-4">Enter the BitteReisen Sweepstakes for as little as <span class="font-bold text-yellow-300">$0.99</span>!</p>
-      <p class="font-bold text-red-500 uppercase">No Purchase Necessary</p>
-      <a href="#sweepstakes-form">
-        <button class="cta-button">Enter Now!</button>
-      </a>
+      <p class="text-lg font-semibold mt-4">Your dream vacation is just one entry away!</p>
+      <a href="#sweepstakes-form" class="cta-button">Enter Now!</a>
     </div>
   </section>
 
-  <!-- Entry Details -->
-  <div class="promo-box">
-    <h2 class="text-2xl font-bold text-blue-900">How It Works</h2>
-    <p class="text-gray-700 mt-4">
-      Enter the sweepstakes for just <strong>$0.99 per entry</strong>. Want more chances? Purchase additional entries!
-    </p>
-    <p class="text-gray-700 mt-4"><strong>No purchase necessary.</strong> Free entry available by mail.</p>
-  </div>
+  <!-- Travel Destinations Section -->
+  <section class="destinations">
+    <h2 class="text-3xl font-bold text-gray-900">Where Will Your Voucher Take You?</h2>
+    <p class="text-gray-700 mt-2">Paris, New York, Bali – the world is yours to explore!</p>
+    <div class="destination-images">
+      <img src="images/paris.jpg" alt="Eiffel Tower, Paris">
+      <img src="images/new-york.jpg" alt="New York Skyline">
+      <img src="images/bali.jpg" alt="Tropical Beach in Bali">
+    </div>
+  </section>
 
-  <div class="promo-box">
-    <h2 class="text-2xl font-bold text-blue-900">Your Chance to Win!</h2>
-    <p class="text-gray-700 mt-4">
-      One lucky winner will receive a $500 airfare voucher. Enter today and start planning your dream trip!
-    </p>
-  </div>
+  <!-- Sweepstakes Entry Form -->
+  <main class="main-content" id="sweepstakes-form">
+    <h2 class="text-3xl font-bold text-gray-900">Enter to Win!</h2>
+    <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
 
-<!-- Signup Form -->
-<main class="main-content" id="sweepstakes-form">
-  <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
-  <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
-  <br>
-
-  <form class="form-section" id="tallyForm">
-    <label for="email" class="text-sm font-medium">Email Address:</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required>
-    <button type="submit" class="form-submit-btn" id="submitButton">Sign Up Now!</button>
-    <p class="success-message" id="successMessage">✅ Success! You're signed up.</p>
-  </form>
-
-  <!-- Hidden Form Submission to Tally -->
-  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
-  <form id="hiddenTallyForm" action="https://tally.so/forms/mYxzK0/submissions" method="POST" target="hidden_iframe">
-    <input type="hidden" name="email" id="hiddenEmail">
-  </form>
-</main>
+    <form class="form-section" id="entryForm">
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      <button type="submit" class="form-submit-btn">Sign up Now!</button>
+      <p id="success-message" class="hidden text-green-600 mt-3">✔ Successfully entered!</p>
+    </form>
+  </main>
 
   <!-- Footer -->
   <footer>
@@ -175,33 +167,13 @@
   </footer>
 
   <script>
-    document.getElementById('tallyForm').addEventListener('submit', function(event) {
+    document.getElementById("entryForm").addEventListener("submit", function(event) {
       event.preventDefault();
-
-      // Get email value
-      var emailValue = document.getElementById('email').value;
-      if (!emailValue) return;
-
-      // Send email to hidden form for Tally
-      document.getElementById('hiddenEmail').value = emailValue;
-      document.getElementById('hiddenTallyForm').submit();
-
-      // Change button text & show success message
-      var submitButton = document.getElementById('submitButton');
-      submitButton.textContent = "✅ Success!";
-      submitButton.style.backgroundColor = "#28a745";
-
-      document.getElementById('successMessage').style.display = "block";
-
-      // Reset form after a short delay
-      setTimeout(function() {
-        submitButton.textContent = "Sign Up Now!";
-        submitButton.style.backgroundColor = "#007bff";
-        document.getElementById('successMessage').style.display = "none";
-        document.getElementById('tallyForm').reset();
-      }, 3000);
+      document.getElementById("success-message").classList.remove("hidden");
+      this.reset();
     });
   </script>
 
 </body>
 </html>
+
