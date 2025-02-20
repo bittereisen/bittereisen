@@ -7,7 +7,6 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* General Styling */
     body {
       font-family: 'Poppins', sans-serif;
       background-color: #f9fafb;
@@ -15,8 +14,6 @@
       margin: 0;
       padding: 0;
     }
-
-    /* Hero Section */
     .hero {
       background-image: url('images/Front_Page_Travel_Pic.jpeg');
       background-size: cover;
@@ -30,8 +27,6 @@
       position: relative;
       padding: 3rem 1rem;
     }
-
-    /* Dark Overlay for Contrast */
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -40,13 +35,11 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
     }
-
     .hero-content {
       z-index: 1;
       max-width: 800px;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
     }
-
     .cta-button {
       background-color: #007bff;
       color: white;
@@ -58,30 +51,9 @@
       margin-top: 20px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     }
-
     .cta-button:hover {
       background-color: #0056b3;
     }
-
-    /* Promo Banner */
-    .promo-banner {
-      background: linear-gradient(to right, #007bff, #00bfff);
-      border: 3px solid #0056b3;
-      padding: 15px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin: 20px auto;
-      max-width: 800px;
-    }
-
-    .promo-text {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Promo Sections */
     .promo-box {
       background-color: #ebf8ff;
       padding: 20px;
@@ -91,8 +63,6 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       max-width: 700px;
     }
-
-    /* Form Section */
     .main-content {
       background-color: #ffffff;
       padding: 40px;
@@ -102,7 +72,6 @@
       max-width: 600px;
       margin: 50px auto;
     }
-
     .form-section input {
       width: 100%;
       padding: 12px;
@@ -112,7 +81,6 @@
       font-size: 16px;
       color: #333;
     }
-
     .form-submit-btn {
       background-color: #007bff;
       color: white;
@@ -123,12 +91,14 @@
       width: 100%;
       margin-top: 20px;
     }
-
     .form-submit-btn:hover {
       background-color: #0056b3;
     }
-
-    /* Footer */
+    .disclaimer {
+      font-size: 12px;
+      color: #666;
+      margin-top: 10px;
+    }
     footer {
       background-color: #ffffff;
       padding: 20px;
@@ -144,12 +114,6 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
-      <br>
-      <div class="promo-banner">
-        <h2 class="promo-text">
-          For <span class="bg-white px-3 py-1 rounded-lg shadow-md text-blue-900 text-3xl">$0.99</span> you could win a chance to fly anywhere in the world!
-        </h2>
-      </div>
       <p class="text-lg font-semibold">
         Take your shot at an unforgettable trip for less than a cup of coffee!
       </p>
@@ -170,8 +134,7 @@
   <div class="promo-box">
     <h2 class="text-2xl font-bold text-blue-900">Affordable!</h2>
     <p class="text-gray-700 mt-4">
-      Imagine jetting off to your dream destination 
-      <br> – no stress <br> - no sky-high ticket prices <br> – just pure travel excitement
+      Imagine jetting off to your dream destination – no stress, no sky-high ticket prices – just pure travel excitement.
     </p>
   </div>
 
@@ -187,38 +150,35 @@
     <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
     <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
     <br>
-
-    <!-- Email Entry Form -->
-    <form id="emailForm" class="form-section">
+    <form class="form-section">
       <div>
         <label for="email" class="text-sm font-medium">Email Address:</label>
         <input type="email" id="email" name="email" placeholder="you@example.com" required>
       </div>
       <button type="submit" class="form-submit-btn">Sign up Now!</button>
     </form>
-
-    <!-- Success Message -->
-    <p id="successMessage" class="text-green-600 mt-4 hidden">
-      ✅ Thank you for signing up! Redirecting...
-    </p>
+    <p class="disclaimer">No purchase necessary. See <a href="terms.html" class="text-blue-600 hover:underline">Terms & Conditions</a> for details.</p>
   </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 BitteReisen, LLC. All rights reserved.</p>
+    <div class="mt-4">
+      <a href="terms.html" class="text-blue-600 hover:underline mx-2">Terms & Conditions</a> |
+      <a href="privacy.html" class="text-blue-600 hover:underline mx-2">Privacy Policy</a>
+      <p class="disclaimer mt-2">No purchase necessary to enter or win.</p>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('emailForm').addEventListener('submit', function(event) {
+    document.querySelector('.form-section').addEventListener('submit', function(event) {
       event.preventDefault();
-      document.getElementById('successMessage').classList.remove('hidden');
-      setTimeout(() => {
-        window.open('https://tally.so/r/mYxzK0', '_blank');
-      }, 2000);
+      alert('Thank you for signing up! You’ll be the first to know when the sweepstakes goes live.');
       this.reset();
     });
   </script>
 
 </body>
 </html>
+
 
