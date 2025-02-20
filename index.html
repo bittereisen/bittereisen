@@ -48,7 +48,7 @@
     }
 
     .cta-button {
-      background-color: #007bff;;
+      background-color: #007bff;
       color: white;
       padding: 14px 28px;
       font-size: 20px;
@@ -171,10 +171,7 @@
     <h2 class="text-2xl font-bold text-blue-900">Affordable!</h2>
     <p class="text-gray-700 mt-4">
       Imagine jetting off to your dream destination 
-      <br>
-      – no stress <br>
-      - no sky-high ticket prices <br>
-      – just pure travel excitement
+      <br> – no stress <br> - no sky-high ticket prices <br> – just pure travel excitement
     </p>
   </div>
 
@@ -185,38 +182,42 @@
     </p>
   </div>
 
-<!-- Main Content Section -->
-<main class="main-content" id="sweepstakes-form">
-  <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
-  <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
-  <br>
+  <!-- Main Content Section -->
+  <main class="main-content" id="sweepstakes-form">
+    <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
+    <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
+    <br>
 
-  <!-- Tally Signup Button -->
-  <a href="https://tally.so/r/mYxzK0" target="_blank" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">
-    Sign up Now!
-  </a>
-</main>
+    <!-- Email Entry Form -->
+    <form id="emailForm" class="form-section">
+      <div>
+        <label for="email" class="text-sm font-medium">Email Address:</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+      <button type="submit" class="form-submit-btn">Sign up Now!</button>
+    </form>
 
+    <!-- Success Message -->
+    <p id="successMessage" class="text-green-600 mt-4 hidden">
+      ✅ Thank you for signing up! Redirecting...
+    </p>
+  </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 BitteReisen, LLC. All rights reserved.</p>
-    <div class="mt-4">
-      <a href="terms.html" class="text-blue-600 hover:underline mx-2">Terms & Conditions</a> |
-      <a href="privacy.html" class="text-blue-600 hover:underline mx-2">Privacy Policy</a>
-    </div>
   </footer>
 
   <script>
-    document.querySelector('.form-section').addEventListener('submit', function(event) {
+    document.getElementById('emailForm').addEventListener('submit', function(event) {
       event.preventDefault();
-      alert('Thank you for showing interest! If we launch, you’ll be the first to know.');
+      document.getElementById('successMessage').classList.remove('hidden');
+      setTimeout(() => {
+        window.open('https://tally.so/r/mYxzK0', '_blank');
+      }, 2000);
       this.reset();
     });
   </script>
 
 </body>
 </html>
-
-
-
