@@ -75,7 +75,7 @@
 
     .destination-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
       justify-content: center;
       margin-top: 20px;
@@ -87,46 +87,6 @@
       object-fit: cover;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .main-content {
-      background-color: #ffffff;
-      padding: 40px;
-      text-align: center;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: 50px auto;
-    }
-
-    .form-section input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 2px solid #ddd;
-      margin-top: 10px;
-      font-size: 16px;
-    }
-
-    .form-submit-btn {
-      background-color: #007bff;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 700;
-      transition: background 0.3s ease;
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    .form-submit-btn:hover {
-      background-color: #0056b3;
-    }
-
-    .success-message {
-      display: none;
-      color: #28a745;
-      font-weight: bold;
-      margin-top: 10px;
     }
 
     footer {
@@ -167,31 +127,32 @@
     </p>
   </div>
 
-<!-- Travel Destinations Section -->
-<div class="promo-box">
-  <h2 class="text-2xl font-bold text-blue-900">Where Will Your Voucher Take You?</h2>
-  <p class="text-gray-700 mt-4">
-    Tokyo, Beach, Las Vegas – the world is yours to explore!
-  </p>
-  <div class="destination-grid">
-    <img src="images/Tokyo.jpg" alt="Tokyo Skyline">
-    <img src="images/Beach.jpg" alt="Eiffel Tower, Paris">
-    <img src="images/Vegas.jpg" alt="Las Vegas">
+  <!-- Travel Destinations Section -->
+  <div class="promo-box">
+    <h2 class="text-2xl font-bold text-blue-900">Where Will Your Voucher Take You?</h2>
+    <p class="text-gray-700 mt-4">
+      Imagine yourself exploring Paris, experiencing the bright lights of New York, or relaxing on a beach in Bali!
+    </p>
+    <div class="destination-grid">
+      <img src="images/paris.jpg" alt="Eiffel Tower, Paris">
+      <img src="images/tokyo.jpg" alt="Tokyo Skyline">
+      <img src="images/vegas.jpg" alt="Las Vegas Strip">
+    </div>
   </div>
-</div>
 
-  <!-- Signup Form -->
-  <main class="main-content" id="sweepstakes-form">
-    <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
+  <!-- Signup Form with Embedded Tally -->
+  <main class="promo-box" id="sweepstakes-form">
+    <h2 class="text-2xl font-bold text-blue-900">Enter to Win in March 2025!</h2>
     <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
     <br>
-
-    <form class="form-section" id="tallyForm">
-      <label for="email" class="text-sm font-medium">Email Address:</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
-      <button type="submit" class="form-submit-btn" id="submitButton">Sign Up Now!</button>
-      <p class="success-message" id="successMessage">✅ Success! You're signed up.</p>
-    </form>
+    
+    <!-- Tally Form Embed -->
+    <iframe src="https://tally.so/embed/mYxzK0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+            width="100%" 
+            height="500px" 
+            frameborder="0" 
+            scrolling="no">
+    </iframe>
   </main>
 
   <!-- Footer -->
@@ -203,17 +164,7 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('tallyForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      document.getElementById('successMessage').style.display = "block";
-      setTimeout(function() {
-        document.getElementById('successMessage').style.display = "none";
-        document.getElementById('tallyForm').reset();
-      }, 3000);
-    });
-  </script>
-
 </body>
 </html>
+
 
