@@ -140,57 +140,86 @@
 <body>
 
   <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
-      <br>
-      <!-- Promo Banner -->
-      <div class="promo-banner">
-        <h2 class="promo-text">
-          For <span class="bg-white px-3 py-1 rounded-lg shadow-md text-blue-900 text-3xl">$0.60</span> you could win a chance to fly anywhere in the world!
-        </h2>
-      </div>
-      <p class="text-lg font-semibold">
-      Take your shot at an unforgettable trip for less than a cup of coffee!
-      </p>
-      <button class="cta-button">Enter Now!</button>
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
+    <br>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+      <h2 class="promo-text">
+        For <span class="bg-white px-3 py-1 rounded-lg shadow-md text-blue-900 text-3xl">$0.60</span> you could win a chance to fly anywhere in the world!
+      </h2>
     </div>
-  </section>
+    <p class="text-lg font-semibold">
+      Take your shot at an unforgettable trip for less than a cup of coffee!
+    </p>
+    <a href="#sweepstakes-form">
+      <button class="cta-button">Enter Now!</button>
+    </a>
+  </div>
+</section>
 
-    <!-- Promotional Section -->
-    <section class="promo-section bg-blue-100 py-10 px-6 text-center rounded-lg shadow-md max-w-4xl mx-auto mt-6">
-      <h2 class="text-4xl font-bold text-blue-900">The Ultimate Travel Deal!</h2>
-      <p class="text-lg text-gray-700 mt-4">
-        For less than the price of a cup of coffee, you could be packing your bags for an unforgettable adventure!  
-        Imagine jetting off to your dream destination – no stress <br> no sky-high ticket prices <br> – just pure travel excitement.  
-      </p>
-      <p class="text-lg text-gray-700 mt-2">
-        **This is your chance to make it happen!**  
-        Sign up today to know when this sweepstakes goes LIVE!
-      </p>
-      <div class="mt-6">
-        <a href="#sweepstakes-form" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg text-lg transition">
-          Sign Up Now & Be the First to Know!
-        </a>
-      </div>
-    </section>
-  <br>
-  <br>
+<!-- Spacing for Consistency -->
+<div class="mt-20"></div>
 
-  <!-- Main Content Section -->
-  <main class="main-content">
-    <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
-    <p class="text-gray-700 mt-2">Enter your email to receive a notification for your chance to win a $500 airfare voucher.</p>
+<!-- Promotional Section - 2x2 Grid Layout -->
+<section class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 px-6">
+  <!-- Promo Box 1 -->
+  <div class="bg-blue-100 py-8 px-6 text-center rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-blue-900">The Ultimate Travel Deal!</h2>
+    <p class="text-gray-700 mt-4">
+      For less than the price of a cup of coffee, you could be packing your bags for an unforgettable adventure!
+    </p>
+  </div>
 
-    <form id="sweepstakes-form" class="form-section">
-      <div>
-        <label for="email" class="text-sm font-medium">Email Address:</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-      </div>
-      <button type="submit" class="form-submit-btn">Show Interest</button>
-    </form>
-  </main>
+  <!-- Promo Box 2 -->
+  <div class="bg-blue-100 py-8 px-6 text-center rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-blue-900">Stress-Free & Affordable!</h2>
+    <p class="text-gray-700 mt-4">
+      Imagine jetting off to your dream destination – no stress, no sky-high ticket prices – just pure travel excitement.
+    </p>
+  </div>
+
+  <!-- Promo Box 3 -->
+  <div class="bg-blue-100 py-8 px-6 text-center rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-blue-900">Your Chance to Win!</h2>
+    <p class="text-gray-700 mt-4">
+      This is your opportunity to experience the trip of a lifetime! Don’t miss out.
+    </p>
+  </div>
+
+  <!-- Promo Box 4 -->
+  <div class="bg-blue-100 py-8 px-6 text-center rounded-lg shadow-md">
+    <h2 class="text-2xl font-bold text-blue-900">Be the First to Know!</h2>
+    <p class="text-gray-700 mt-4">
+      Sign up today to stay updated and get notified when the sweepstakes goes live.
+    </p>
+    <div class="mt-4">
+      <a href="#sweepstakes-form" class="bg-blue-600 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-lg text-lg transition">
+        Sign Up Now!
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Spacing for Consistency -->
+<div class="mt-20"></div>
+
+<!-- Main Content Section -->
+<main class="main-content" id="sweepstakes-form">
+  <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
+  <p class="text-gray-700 mt-2">Enter your email to receive a notification for your chance to win a $500 airfare voucher.</p>
+
+  <form class="form-section">
+    <div>
+      <label for="email" class="text-sm font-medium">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+    </div>
+    <button type="submit" class="form-submit-btn">Show Interest</button>
+  </form>
+</main>
+
 
   <!-- Footer -->
   <footer>
