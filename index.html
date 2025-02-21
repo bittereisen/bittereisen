@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Enter BitteReisen Sweepstakes for a chance to win a $500 Airfare Voucher. No purchase necessary. Get more chances to win with additional entries!">
+  <meta name="keywords" content="sweepstakes, airfare voucher, $500 giveaway, win airfare, travel sweepstakes, no purchase necessary">
   <title>Win a $500 Airfare Voucher | BitteReisen Sweepstakes</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -148,7 +150,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
-      <p class="text-lg font-semibold mt-4">Enter the BitteReisen Sweepstakes for as little as <span class="font-bold text-#f2ee07">$0.99</span>!</p>
+      <p class="text-lg font-semibold mt-4">Enter the BitteReisen Sweepstakes for as little as <span class="font-bold text-yellow-400">$0.99</span>!</p>
       <p class="font-bold text-red-600 uppercase">No Purchase Necessary</p>
       <a href="#sweepstakes-form">
         <button class="cta-button">Enter Now!</button>
@@ -156,15 +158,16 @@
     </div>
   </section>
 
-  <!-- Promo Box -->
+  <!-- How It Works Section -->
   <div class="promo-box">
     <h2 class="text-2xl font-bold text-blue-900">How It Works</h2>
     <p class="text-gray-700 mt-4">
       Enter the sweepstakes for just <strong>$0.99 per entry</strong>. Want more chances? Purchase additional entries!
     </p>
-    <p class="text-gray-700 mt-4">No purchase necessary. Free entry available by mail.</p>
+    <p class="text-gray-700 mt-4">No purchase necessary. Free entry available by mail. See <a href="terms.html" class="text-blue-600 hover:underline">Terms & Conditions</a> for details.</p>
   </div>
 
+  <!-- Prize Info Section -->
   <div class="promo-box">
     <h2 class="text-2xl font-bold text-blue-900">Your Chance to Win!</h2>
     <p class="text-gray-700 mt-4">
@@ -172,73 +175,36 @@
     </p>
   </div>
 
+  <!-- Destination Grid -->
   <div class="promo-box">
     <h2 class="text-2xl font-bold text-blue-900">Where Will Your Voucher Take You?</h2>
-    <p class="text-gray-700 mt-4">
-      The world is yours to explore!
-    </p>
+    <p class="text-gray-700 mt-4">The world is yours to explore!</p>
     <div class="destination-grid">
       <img src="images/Tokyo.jpg" alt="Tokyo Skyline">
       <img src="images/Vegas.jpg" alt="Las Vegas">
     </div>
   </div>
 
-<!-- Signup Form -->
-<main class="main-content" id="sweepstakes-form">
-  <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
-  <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
-  <br>
+  <!-- Signup Form -->
+  <main class="main-content" id="sweepstakes-form">
+    <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
+    <p class="text-gray-700 mt-2">Sign up today and be notified when the sweepstakes goes live.</p>
 
-  <form class="form-section" id="tallyForm">
-    <label for="email" class="text-sm font-medium">Email Address:</label>
-    <input type="email" id="email" name="email" placeholder="you@example.com" required>
-    <button type="submit" class="form-submit-btn" id="submitButton">Sign Up Now!</button>
-    <p class="success-message" id="successMessage">✅ Success! You're signed up.</p>
-  </form>
-</main>
-
-<script>
-  document.getElementById('tallyForm').addEventListener('submit', async function(event) {
-    event.preventDefault(); // Prevents the default form submission behavior
-
-    const email = document.getElementById('email').value;
-    const formUrl = "https://tally.so/forms/mYxzK0/submissions"; // Replace with your actual Tally form submission URL
-
-    const formData = new FormData();
-    formData.append("email", email); // Ensure this matches the field name in Tally
-
-    try {
-      const response = await fetch(formUrl, {
-        method: "POST",
-        body: formData,
-        headers: {
-          "Accept": "application/json"
-        }
-      });
-
-      if (response.ok) {
-        document.getElementById('successMessage').style.display = "block";
-        document.getElementById('tallyForm').reset();
-        setTimeout(() => {
-          document.getElementById('successMessage').style.display = "none";
-        }, 3000);
-      } else {
-        alert("There was an issue submitting your email. Please try again.");
-      }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("There was an error. Please try again later.");
-    }
-  });
-</script>
-
+    <form class="form-section" id="tallyForm">
+      <label for="email" class="text-sm font-medium">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      <button type="submit" class="form-submit-btn" id="submitButton">Sign Up Now!</button>
+      <p class="success-message" id="successMessage">✅ Success! You're signed up.</p>
+    </form>
+  </main>
 
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 BitteReisen, LLC. All rights reserved.</p>
     <div class="mt-4">
       <a href="terms.html" class="text-blue-600 hover:underline mx-2">Terms & Conditions</a> |
-      <a href="privacy.html" class="text-blue-600 hover:underline mx-2">Privacy Policy</a>
+      <a href="privacy.html" class="text-blue-600 hover:underline mx-2">Privacy Policy</a> |
+      <a href="contact.html" class="text-blue-600 hover:underline mx-2">Contact Us</a>
     </div>
   </footer>
 
@@ -248,13 +214,37 @@
   </div>
 
   <script>
-    document.getElementById('tallyForm').addEventListener('submit', function(event) {
-      event.preventDefault();
-      document.getElementById('successMessage').style.display = "block";
-      setTimeout(function() {
-        document.getElementById('successMessage').style.display = "none";
-        document.getElementById('tallyForm').reset();
-      }, 3000);
+    document.getElementById('tallyForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevents the default form submission behavior
+
+      const email = document.getElementById('email').value;
+      const formUrl = "https://tally.so/forms/mYxzK0/submissions"; // Replace with your actual Tally form submission URL
+
+      const formData = new FormData();
+      formData.append("email", email); // Ensure this matches the field name in Tally
+
+      try {
+        const response = await fetch(formUrl, {
+          method: "POST",
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          document.getElementById('successMessage').style.display = "block";
+          document.getElementById('tallyForm').reset();
+          setTimeout(() => {
+            document.getElementById('successMessage').style.display = "none";
+          }, 3000);
+        } else {
+          alert("There was an issue submitting your email. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("There was an error. Please try again later.");
+      }
     });
   </script>
 
