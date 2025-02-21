@@ -183,19 +183,29 @@
     </div>
   </div>
 
-<!-- Tally Form Embed -->
-<div class="main-content" id="sweepstakes-form">
+<!-- Signup Form -->
+<main class="main-content" id="sweepstakes-form">
   <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
   <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
   <br>
 
+  <!-- Tally Form Embed -->
   <iframe data-tally-src="https://tally.so/embed/mYxzK0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-    width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0" title="Bitte Reisen Sweepstakes">
+    width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Bitte Reisen Sweepstakes">
   </iframe>
 
   <!-- Success Message -->
   <p class="success-message" id="successMessage" style="display: none;">✅ Success! You're signed up.</p>
-</div>
+</main>
+
+<script>
+  // Check if the URL contains ?success=true and display success message
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.has('success')) {
+    document.getElementById('successMessage').style.display = "block";
+  }
+</script>
+
 
   <!-- Footer -->
   <footer>
