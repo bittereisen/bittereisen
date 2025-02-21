@@ -183,19 +183,55 @@
     </div>
   </div>
 
-  <!-- Signup Form -->
-  <main class="main-content" id="sweepstakes-form">
-    <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
-    <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
-    <br>
+<!-- Signup Form -->
+<main class="main-content" id="sweepstakes-form">
+  <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
+  <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
+  <br>
 
-    <form class="form-section" id="tallyForm">
-      <label for="email" class="text-sm font-medium">Email Address:</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required>
-      <button type="submit" class="form-submit-btn" id="submitButton">Sign Up Now!</button>
-      <p class="success-message" id="successMessage">✅ Success! You're signed up.</p>
-    </form>
-  </main>
+  <form class="form-section" id="tallyForm">
+    <label for="email" class="text-sm font-medium">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="you@example.com" required>
+    <button type="submit" class="form-submit-btn" id="submitButton">Sign Up Now!</button>
+    <p class="success-message" id="successMessage">✅ Success! You're signed up.</p>
+  </form>
+</main>
+
+<script>
+  document.getElementById('tallyForm').addEventListener('submit', async function(event) {
+    event.preventDefault(); // Prevents the default form submission behavior
+
+    const email = document.getElementById('email').value;
+    const formUrl = "https://tally.so/forms/mYxzK0/submissions"; // Replace with your actual Tally form submission URL
+
+    const formData = new FormData();
+    formData.append("email", email); // Ensure this matches the field name in Tally
+
+    try {
+      const response = await fetch(formUrl, {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+
+      if (response.ok) {
+        document.getElementById('successMessage').style.display = "block";
+        document.getElementById('tallyForm').reset();
+        setTimeout(() => {
+          document.getElementById('successMessage').style.display = "none";
+        }, 3000);
+      } else {
+        alert("There was an issue submitting your email. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error. Please try again later.");
+    }
+  });
+</script>
+
 
   <!-- Footer -->
   <footer>
