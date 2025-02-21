@@ -148,7 +148,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
-      <p class="text-lg font-semibold mt-4">Enter the BitteReisen Sweepstakes for as little as <span class="font-bold text-green-500">$0.99</span>!</p>
+      <p class="text-lg font-semibold mt-4">Enter the BitteReisen Sweepstakes for as little as <span class="font-bold text-green-200">$0.99</span>!</p>
       <p class="font-bold text-red-600 uppercase">No Purchase Necessary</p>
       <a href="#sweepstakes-form">
         <button class="cta-button">Enter Now!</button>
@@ -183,29 +183,19 @@
     </div>
   </div>
 
-<!-- Signup Form -->
-<main class="main-content" id="sweepstakes-form">
-  <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
-  <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
-  <br>
+  <!-- Signup Form -->
+  <main class="main-content" id="sweepstakes-form">
+    <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
+    <p class="text-gray-700 mt-2">Sign up today - get notified when the sweepstakes goes live.</p>
+    <br>
 
-  <!-- Tally Form Embed -->
-  <iframe data-tally-src="https://tally.so/embed/mYxzK0?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
-    width="100%" height="200" frameborder="0" marginheight="0" marginwidth="0" title="Bitte Reisen Sweepstakes">
-  </iframe>
-
-  <!-- Success Message -->
-  <p class="success-message" id="successMessage" style="display: none;">✅ Success! You're signed up.</p>
-</main>
-
-<script>
-  // Check if the URL contains ?success=true and display success message
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.has('success')) {
-    document.getElementById('successMessage').style.display = "block";
-  }
-</script>
-
+    <form class="form-section" id="tallyForm">
+      <label for="email" class="text-sm font-medium">Email Address:</label>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      <button type="submit" class="form-submit-btn" id="submitButton">Sign Up Now!</button>
+      <p class="success-message" id="successMessage">✅ Success! You're signed up.</p>
+    </form>
+  </main>
 
   <!-- Footer -->
   <footer>
