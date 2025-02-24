@@ -16,7 +16,6 @@
       margin: 0;
       padding: 0;
     }
-
     .hero {
       background-image: url('images/Front_Page_Travel_Pic.jpeg');
       background-size: cover;
@@ -30,7 +29,6 @@
       position: relative;
       padding: 3rem 1rem;
     }
-
     .hero-overlay {
       position: absolute;
       top: 0;
@@ -39,12 +37,10 @@
       height: 100%;
       background: rgba(0, 0, 0, 0.5);
     }
-
     .hero-content {
       z-index: 1;
       max-width: 800px;
     }
-
     .cta-button {
       background-color: #007bff;
       color: white;
@@ -55,36 +51,9 @@
       transition: background 0.3s ease;
       margin-top: 20px;
     }
-
     .cta-button:hover {
       background-color: #0056b3;
     }
-
-    .promo-box {
-      background-color: #ebf8ff;
-      padding: 20px;
-      margin: 20px auto;
-      text-align: center;
-      border-radius: 10px;
-      max-width: 700px;
-    }
-
-    .destination-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 20px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .destination-grid img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
     .main-content {
       background-color: #ffffff;
       padding: 40px;
@@ -93,7 +62,6 @@
       max-width: 600px;
       margin: 50px auto;
     }
-
     .form-section input {
       width: 100%;
       padding: 12px;
@@ -102,7 +70,6 @@
       margin-top: 10px;
       font-size: 16px;
     }
-
     .form-submit-btn {
       background-color: #007bff;
       color: white;
@@ -113,33 +80,14 @@
       width: 100%;
       margin-top: 20px;
     }
-
     .form-submit-btn:hover {
       background-color: #0056b3;
     }
-
     .success-message {
       display: none;
       color: #28a745;
       font-weight: bold;
       margin-top: 10px;
-    }
-
-    footer {
-      background-color: #ffffff;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    .disclaimer {
-      background-color: #f8f9fa;
-      padding: 20px;
-      text-align: center;
-      font-size: 12px;
-      color: #555;
-      margin-top: 20px;
-      border-top: 1px solid #ddd;
     }
   </style>
 </head>
@@ -158,39 +106,12 @@
     </div>
   </section>
 
-  <!-- How It Works Section -->
-  <div class="promo-box">
-    <h2 class="text-2xl font-bold text-blue-900">How It Works</h2>
-    <p class="text-gray-700 mt-4">
-      Enter the sweepstakes for just <strong>$0.99 per entry</strong>. Want more chances? Purchase additional entries!
-    </p>
-    <p class="text-gray-700 mt-4">No purchase necessary. Free entry available by mail. See <a href="terms.html" class="text-blue-600 hover:underline">Terms & Conditions</a> for details.</p>
-  </div>
-
-  <!-- Prize Info Section -->
-  <div class="promo-box">
-    <h2 class="text-2xl font-bold text-blue-900">Your Chance to Win!</h2>
-    <p class="text-gray-700 mt-4">
-      One lucky winner will receive a $500 airfare voucher. Enter today and start planning your dream trip!
-    </p>
-  </div>
-
-  <!-- Destination Grid -->
-  <div class="promo-box">
-    <h2 class="text-2xl font-bold text-blue-900">Where Will Your Voucher Take You?</h2>
-    <p class="text-gray-700 mt-4">The world is yours to explore!</p>
-    <div class="destination-grid">
-      <img src="images/Tokyo.jpg" alt="Tokyo Skyline">
-      <img src="images/Vegas.jpg" alt="Las Vegas">
-    </div>
-  </div>
-
   <!-- Signup Form -->
   <main class="main-content" id="sweepstakes-form">
     <h2 class="text-3xl font-bold text-gray-900">Enter to Win in March 2025!</h2>
     <p class="text-gray-700 mt-2">Sign up today and be notified when the sweepstakes goes live.</p>
 
-    <form class="form-section" id="tallyForm">
+    <form class="form-section" id="emailForm">
       <label for="email" class="text-sm font-medium">Email Address:</label>
       <input type="email" id="email" name="email" placeholder="you@example.com" required>
       <button type="submit" class="form-submit-btn" id="submitButton">Sign Up Now!</button>
@@ -198,52 +119,47 @@
     </form>
   </main>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 BitteReisen, LLC. All rights reserved.</p>
-    <div class="mt-4">
-      <a href="terms.html" class="text-blue-600 hover:underline mx-2">Terms & Conditions</a> |
-      <a href="privacy.html" class="text-blue-600 hover:underline mx-2">Privacy Policy</a> |
-      <a href="contact.html" class="text-blue-600 hover:underline mx-2">Contact Us</a>
-    </div>
   </footer>
 
-  <!-- Disclaimer Section -->
-  <div class="disclaimer">
-    <p>BitteReisen, LLC is an independent sweepstakes company. No affiliation with airlines or travel agencies. No purchase necessary. Open to legal residents of the 50 United States and D.C. See <a href="terms.html" class="text-blue-600 hover:underline">Terms & Conditions</a> for details.</p>
-  </div>
+  <!-- Firebase Script -->
+  <script type="module">
+    // Import Firebase SDKs
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  <script>
-    document.getElementById('tallyForm').addEventListener('submit', async function(event) {
-      event.preventDefault(); // Prevents the default form submission behavior
+    // 🔹 REPLACE WITH YOUR FIREBASE CONFIG 🔹
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      storageBucket: "YOUR_PROJECT_ID.appspot.com",
+      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Form Submission
+    document.getElementById('emailForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
 
       const email = document.getElementById('email').value;
-      const formUrl = "https://tally.so/forms/mYxzK0/submissions"; // Replace with your actual Tally form submission URL
-
-      const formData = new FormData();
-      formData.append("email", email); // Ensure this matches the field name in Tally
 
       try {
-        const response = await fetch(formUrl, {
-          method: "POST",
-          body: formData,
-          headers: {
-            "Accept": "application/json"
-          }
-        });
+        await addDoc(collection(db, "emails"), { email, timestamp: new Date() });
 
-        if (response.ok) {
-          document.getElementById('successMessage').style.display = "block";
-          document.getElementById('tallyForm').reset();
-          setTimeout(() => {
-            document.getElementById('successMessage').style.display = "none";
-          }, 3000);
-        } else {
-          alert("There was an issue submitting your email. Please try again.");
-        }
+        document.getElementById('successMessage').style.display = "block";
+        document.getElementById('emailForm').reset();
+        setTimeout(() => {
+          document.getElementById('successMessage').style.display = "none";
+        }, 3000);
       } catch (error) {
-        console.error("Error submitting form:", error);
-        alert("There was an error. Please try again later.");
+        console.error("Error submitting email:", error);
+        alert("There was an issue. Please try again.");
       }
     });
   </script>
