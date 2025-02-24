@@ -1,4 +1,4 @@
-// Import necessary modules
+
 const functions = require('firebase-functions'); // Import functions first
 const admin = require('firebase-admin');
 
@@ -6,7 +6,7 @@ const admin = require('firebase-admin');
 admin.initializeApp();
 
 // Function to handle email submission
-exports.submitEmail = functions.https.onRequest(async (req, res) => {
+exports.submitEmail = functions.https.onRequest(function(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).send('Method Not Allowed');
   }
