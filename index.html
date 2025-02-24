@@ -123,28 +123,61 @@
     <p>&copy; 2025 BitteReisen, LLC. All rights reserved.</p>
   </footer>
 
+  <!-- Firebase Script -->
   <script type="module">
-    // Import the functions you need from the SDKs you need
+    // Import Firebase SDKs
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+    // Firebase Configuration
     const firebaseConfig = {
       apiKey: "AIzaSyBaFy72JdZu1VsHstuxPetysBgY8UlR3GE",
       authDomain: "bittereisen---email-collection.firebaseapp.com",
       projectId: "bittereisen---email-collection",
-      storageBucket: "bittereisen---email-collection.firebasestorage.app",
+      storageBucket: "bittereisen---email-collection.appspot.com", // Fixed URL
       messagingSenderId: "234321636270",
       appId: "1:234321636270:web:dac5b95755b13ca8ad363f",
       measurementId: "G-2WZ0JWF1ND"
     };
-  
+
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
+    const db = getFirestore(app); // Initialize Firestore
+
+    // Form Submission
+    document.getElementById('emailForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent page reload
+
+      const emailInput = document.getElementById('email');
+      const successMessage = document.getElementById('successMessage');
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        alert("Please enter a valid email.");
+        return;
+      }
+
+      try {
+        // Save email to Firestore
+        await addDoc(collection(db, "emails"), {
+          email: email,
+          timestamp: new Date()
+        });
+
+        // Show success message
+        successMessage.style.display = "block";
+
+        // Reset form and hide message after 3 seconds
+        emailInput.value = "";
+        setTimeout(() => {
+          successMessage.style.display = "none";
+        }, 3000);
+        
+      } catch (error) {
+        console.error("Error saving email:", error);
+        alert("Error submitting email. Please try again.");
+      }
+    });
   </script>
 
 </body>
