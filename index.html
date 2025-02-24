@@ -212,41 +212,59 @@
   <div class="disclaimer">
     <p>BitteReisen, LLC is an independent sweepstakes company. No affiliation with airlines or travel agencies. No purchase necessary. Open to legal residents of the 50 United States and D.C. See <a href="terms.html" class="text-blue-600 hover:underline">Terms & Conditions</a> for details.</p>
   </div>
+  <script type="module">
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
 
-  <script>
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBaFy72JdZu1VsHstuxPetysBgY8UlR3GE",
+      authDomain: "bittereisen---email-collection.firebaseapp.com",
+      projectId: "bittereisen---email-collection",
+      storageBucket: "bittereisen---email-collection.appspot.com",
+      messagingSenderId: "234321636270",
+      appId: "1:234321636270:web:dac5b95755b13ca8ad363f",
+      measurementId: "G-2WZ0JWF1ND"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Form submission handler
     document.getElementById('tallyForm').addEventListener('submit', async function(event) {
-      event.preventDefault(); // Prevents the default form submission behavior
+      event.preventDefault(); // Prevent default form submission
 
-      const email = document.getElementById('email').value;
-      const formUrl = "https://tally.so/forms/mYxzK0/submissions"; // Replace with your actual Tally form submission URL
+      const emailInput = document.getElementById('email');
+      const successMessage = document.getElementById('successMessage');
+      const email = emailInput.value.trim();
 
-      const formData = new FormData();
-      formData.append("email", email); // Ensure this matches the field name in Tally
+      if (!email) {
+        alert("Please enter a valid email.");
+        return;
+      }
 
       try {
-        const response = await fetch(formUrl, {
-          method: "POST",
-          body: formData,
-          headers: {
-            "Accept": "application/json"
-          }
+        // Store email in Firestore
+        await addDoc(collection(db, "emails"), {
+          email: email,
+          timestamp: serverTimestamp() // Adds server timestamp
         });
 
-        if (response.ok) {
-          document.getElementById('successMessage').style.display = "block";
-          document.getElementById('tallyForm').reset();
-          setTimeout(() => {
-            document.getElementById('successMessage').style.display = "none";
-          }, 3000);
-        } else {
-          alert("There was an issue submitting your email. Please try again.");
-        }
+        // Show success message & clear input
+        successMessage.style.display = "block";
+        emailInput.value = "";
+
+        // Hide message after 3 seconds
+        setTimeout(() => successMessage.style.display = "none", 3000);
       } catch (error) {
-        console.error("Error submitting form:", error);
-        alert("There was an error. Please try again later.");
+        console.error("Error saving email:", error);
+        alert("Error submitting email. Please try again.");
       }
     });
   </script>
+
 
 </body>
 </html>
