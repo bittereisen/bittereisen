@@ -16,6 +16,7 @@
       margin: 0;
       padding: 0;
     }
+
     .hero {
       background-image: url('images/Front_Page_Travel_Pic.jpeg');
       background-size: cover;
@@ -54,6 +55,22 @@
     .cta-button:hover {
       background-color: #0056b3;
     }
+
+    /* New Section to Highlight Entry Fee */
+    .entry-cost-section {
+      background-color: #ffeb3b; /* Light yellow */
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 40px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .entry-cost-section p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+
     .main-content {
       background-color: #ffffff;
       padding: 40px;
@@ -62,6 +79,7 @@
       max-width: 600px;
       margin: 50px auto;
     }
+
     .form-section input {
       width: 100%;
       padding: 12px;
@@ -70,6 +88,7 @@
       margin-top: 10px;
       font-size: 16px;
     }
+
     .form-submit-btn {
       background-color: #007bff;
       color: white;
@@ -83,11 +102,31 @@
     .form-submit-btn:hover {
       background-color: #0056b3;
     }
+
     .success-message {
       display: none;
       color: #28a745;
       font-weight: bold;
       margin-top: 10px;
+    }
+
+    /* Media Queries for Mobile Responsiveness */
+    @media (max-width: 768px) {
+      .hero {
+        padding: 2rem 1rem;
+      }
+      .cta-button {
+        font-size: 18px;
+        padding: 12px 24px;
+      }
+      .entry-cost-section {
+        font-size: 1rem;
+        padding: 15px;
+      }
+      .main-content {
+        padding: 20px;
+        margin: 20px auto;
+      }
     }
   </style>
 </head>
@@ -104,6 +143,11 @@
         <button class="cta-button">Enter Now!</button>
       </a>
     </div>
+  </section>
+
+  <!-- New Section to Highlight $0.99 Entry Fee -->
+  <section class="entry-cost-section">
+    <p>Only <strong>$0.99</strong> to Enter & Get More Chances to Win! Don’t Miss Out!</p>
   </section>
 
   <!-- Signup Form -->
@@ -134,7 +178,7 @@
       apiKey: "AIzaSyBaFy72JdZu1VsHstuxPetysBgY8UlR3GE",
       authDomain: "bittereisen---email-collection.firebaseapp.com",
       projectId: "bittereisen---email-collection",
-      storageBucket: "bittereisen---email-collection.appspot.com", // Fixed URL
+      storageBucket: "bittereisen---email-collection.appspot.com",
       messagingSenderId: "234321636270",
       appId: "1:234321636270:web:dac5b95755b13ca8ad363f",
       measurementId: "G-2WZ0JWF1ND"
