@@ -141,6 +141,19 @@
       margin-top: 20px;
       border-top: 1px solid #ddd;
     }
+
+    /* Style for highlighting the $0.99 entry fee section */
+    .entry-cost-section {
+      background-color: #fefcbf; /* Yellow background */
+      padding: 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: #d97706; /* Darker yellow text */
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body>
@@ -158,11 +171,10 @@
     </div>
   </section>
 
-    <!-- New Section to Highlight $0.99 Entry Fee -->
-    <section class="entry-cost-section">
-      <p>Only <strong>$0.99</strong> to Enter & Get More Chances to Win! Don’t Miss Out!</p>
-    </section>
-  
+  <!-- New Section to Highlight $0.99 Entry Fee -->
+  <section class="entry-cost-section">
+    <p>Only <strong>$0.99</strong> to Enter & Get More Chances to Win! Don’t Miss Out!</p>
+  </section>
 
   <!-- How It Works Section -->
   <div class="promo-box">
@@ -218,6 +230,7 @@
   <div class="disclaimer">
     <p>BitteReisen, LLC is an independent sweepstakes company. No affiliation with airlines or travel agencies. No purchase necessary. Open to legal residents of the 50 United States and D.C. See <a href="terms.html" class="text-blue-600 hover:underline">Terms & Conditions</a> for details.</p>
   </div>
+
   <script type="module">
     // Import Firebase modules
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
@@ -270,7 +283,6 @@
       }
     });
   </script>
-
 
 </body>
 </html>
