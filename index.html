@@ -46,7 +46,7 @@
     }
 
     .cta-button {
-      background: linear-gradient(135deg, #2d5f78, #4db8a7); /* Soft blue-green gradient */
+      background-color: #007bff;
       color: white;
       padding: 14px 28px;
       font-size: 20px;
@@ -57,22 +57,7 @@
     }
 
     .cta-button:hover {
-      background: linear-gradient(135deg, #2c4e5e, #3a8e85); /* Darker blue-green on hover */
-    }
-
-    .entry-cost-section {
-      background-color: #f7fafc; /* Light, clean background */
-      color: #4db8a7; /* Soft teal for accent */
-      padding: 15px;
-      text-align: center;
-      font-size: 20px;
-      font-weight: bold;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-
-    .entry-cost-section strong {
-      color: #1d3a4f; /* Dark teal for emphasis */
+      background-color: #0056b3;
     }
 
     .promo-box {
@@ -119,7 +104,7 @@
     }
 
     .form-submit-btn {
-      background-color: #4db8a7;
+      background-color: #007bff;
       color: white;
       padding: 12px 24px;
       border-radius: 8px;
@@ -130,7 +115,7 @@
     }
 
     .form-submit-btn:hover {
-      background-color: #3a8e85;
+      background-color: #0056b3;
     }
 
     .success-message {
@@ -166,17 +151,12 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
-      <p class="text-lg font-semibold mt-4">Enter the BitteReisen Sweepstakes for as little as <span class="font-bold text-teal-400">$0.99</span>!</p>
-      <p class="font-bold text-teal-600 uppercase">No Purchase Necessary</p>
+      <p class="text-lg font-semibold mt-4">Enter the BitteReisen Sweepstakes for as little as $0.99</p>
+      <p class="font-bold uppercase">No Purchase Necessary</p>
       <a href="#sweepstakes-form">
         <button class="cta-button">Enter Now!</button>
       </a>
     </div>
-  </section>
-
-  <!-- New Section to Highlight $0.99 Entry Fee -->
-  <section class="entry-cost-section">
-    <p>Only <strong>$0.99</strong> to Enter & Get More Chances to Win! Don’t Miss Out!</p>
   </section>
 
   <!-- How It Works Section -->
@@ -235,7 +215,56 @@
   </div>
 
   <script type="module">
-    // Firebase code here
+    // Import Firebase modules
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.3.1/firebase-firestore.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBaFy72JdZu1VsHstuxPetysBgY8UlR3GE",
+      authDomain: "bittereisen---email-collection.firebaseapp.com",
+      projectId: "bittereisen---email-collection",
+      storageBucket: "bittereisen---email-collection.appspot.com",
+      messagingSenderId: "234321636270",
+      appId: "1:234321636270:web:dac5b95755b13ca8ad363f",
+      measurementId: "G-2WZ0JWF1ND"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Form submission handler
+    document.getElementById('tallyForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      const emailInput = document.getElementById('email');
+      const successMessage = document.getElementById('successMessage');
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        alert("Please enter a valid email.");
+        return;
+      }
+
+      try {
+        // Store email in Firestore
+        await addDoc(collection(db, "emails"), {
+          email: email,
+          timestamp: serverTimestamp() // Adds server timestamp
+        });
+
+        // Show success message & clear input
+        successMessage.style.display = "block";
+        emailInput.value = "";
+
+        // Hide message after 3 seconds
+        setTimeout(() => successMessage.style.display = "none", 3000);
+      } catch (error) {
+        console.error("Error saving email:", error);
+        alert("Error submitting email. Please try again.");
+      }
+    });
   </script>
 
 </body>
