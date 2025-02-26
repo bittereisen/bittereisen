@@ -1,20 +1,7 @@
 {
   "functions": [
     {
-      "source": "functions",
-      "codebase": "default",
-      "ignore": [
-        "node_modules",
-        ".git",
-        "firebase-debug.log",
-        "firebase-debug.*.log"
-      ],
-      "predeploy": [
-        "npm --prefix \"$RESOURCE_DIR\" run lint"
-      ]
-    },
-    {
-      "source": "email-functions",
+      "source": "email-functions",  // Points to your function folder
       "codebase": "email-functions",
       "ignore": [
         "node_modules",
@@ -29,3 +16,4 @@
     }
   ]
 }
+
