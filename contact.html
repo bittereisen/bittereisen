@@ -7,28 +7,37 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100 text-gray-900">
-  <div class="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
+  <div class="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg mt-10">
     <h1 class="text-2xl font-bold mb-4">Contact Us</h1>
-    <p class="text-sm text-gray-600 mb-6">We’d love to hear from you. Please reach out to us with any questions or concerns.</p>
+    <p class="text-sm text-gray-600 mb-6">Have a question? Get in touch with us!</p>
 
-    <h2 class="text-lg font-semibold mt-6">Our Contact Information</h2>
-    <p class="mt-2"><strong>BitteReisen, LLC</strong></p>
-    <p>5753 Highway 85 North<br>Crestview, FL 32536</p>
-    <p>Email: <a href="mailto:privacy@bittereisen.com" class="text-blue-600 hover:underline">privacy@bittereisen.com</a></p>
+    <!-- Section 1: General Contact Info -->
+    <div class="mb-6">
+      <h2 class="text-lg font-semibold">General Inquiries</h2>
+      <p class="mt-2"><strong>BitteReisen, LLC</strong></p>
+      <p>5753 Highway 85 North<br>Crestview, FL 32536</p>
+      <p>Email: <a href="mailto:info@bittereisen.com" class="text-blue-600 hover:underline">info@bittereisen.com</a></p>
+      <p>Phone: <a href="tel:+1234567890" class="text-blue-600 hover:underline">(234) 567-890</a></p>
+    </div>
 
-    <h2 class="text-lg font-semibold mt-6">Send Us a Message</h2>
-    <form action="#" method="POST" class="mt-4">
-      <label class="block text-sm font-medium">Your Name</label>
-      <input type="text" name="name" class="w-full p-2 border border-gray-300 rounded mt-1" required>
+    <!-- Section 2: Business Hours -->
+    <div class="mb-6">
+      <h2 class="text-lg font-semibold">Business Hours</h2>
+      <p class="mt-2">Monday - Friday: 9:00 AM – 6:00 PM EST</p>
+      <p>Saturday - Sunday: Closed</p>
+    </div>
 
-      <label class="block text-sm font-medium mt-4">Your Email</label>
-      <input type="email" name="email" class="w-full p-2 border border-gray-300 rounded mt-1" required>
-
-      <label class="block text-sm font-medium mt-4">Your Message</label>
-      <textarea name="message" rows="4" class="w-full p-2 border border-gray-300 rounded mt-1" required></textarea>
-
-      <button type="submit" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send Message</button>
-    </form>
+    <!-- Section 3: Social Media -->
+    <div class="mb-6">
+      <h2 class="text-lg font-semibold">Follow Us</h2>
+      <p class="mt-2">Stay updated and connect with us on social media:</p>
+      <ul class="mt-2">
+        <li><a href="https://facebook.com/bittereisen" target="_blank" class="text-blue-600 hover:underline">Facebook</a></li>
+        <li><a href="https://twitter.com/bittereisen" target="_blank" class="text-blue-600 hover:underline">Twitter</a></li>
+        <li><a href="https://instagram.com/bittereisen" target="_blank" class="text-blue-600 hover:underline">Instagram</a></li>
+        <li><a href="https://linkedin.com/company/bittereisen" target="_blank" class="text-blue-600 hover:underline">LinkedIn</a></li>
+      </ul>
+    </div>
 
     <a href="index.html" class="block mt-6 text-blue-600 hover:underline">Back to Home</a>
   </div>
