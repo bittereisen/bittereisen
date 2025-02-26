@@ -228,7 +228,7 @@
       }
 
       try {
-        const response = await fetch('https://<your-region>-<your-project-id>.cloudfunctions.net/submitEmail', {
+        const response = await fetch('https://us-central1-bitterreisen-email-collection.cloudfunctions.net/submitEmail', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: email })

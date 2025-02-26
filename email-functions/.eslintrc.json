@@ -1,0 +1,10 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 2022,  // Update to 2022 for modern JS support
+    "sourceType": "module"
+  },
+  "env": {
+    "es2021": true,
+    "node": true
+  }
+}

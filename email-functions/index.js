@@ -1,13 +1,12 @@
 // Import Firebase Functions and Firebase Admin SDK
-const functions = require('firebase-functions');
+const functions = require('firebase-functions'); // Import functions first
 const admin = require('firebase-admin');
 
 // Initialize Firebase Admin SDK
 admin.initializeApp();
 
 // Function to handle email submission
-exports.submitEmail = functions.https.onRequest(async (req, res) => { 
-  // Handle POST request
+exports.submitEmail = functions.https.onRequest(async (req, res) => { // Make this function async
   if (req.method !== 'POST') {
     return res.status(405).send('Method Not Allowed');
   }
