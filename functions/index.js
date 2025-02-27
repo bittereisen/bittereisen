@@ -1,3 +1,29 @@
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+const cors = require('cors')({origin: true});
+admin.initializeApp();
+
+exports.submitEmail = functions.https.onRequest((req, res) => {
+  cors(req, res, () => {
+    // Your code for handling the email submission and saving it to Firebase
+    if (req.method === 'POST') {
+      const email = req.body.email;
+
+      // Save to Firebase Realtime Database or Firestore
+      admin.firestore().collection('emails').add({
+        email: email,
+        timestamp: admin.firestore.FieldValue.serverTimestamp()
+      }).then(() => {
+        res.status(200).send({message: 'Email submitted successfully.'});
+      }).catch((error) => {
+        res.status(500).send({message: 'Error saving email.'});
+      });
+    } else {
+      res.status(405).send({message: 'Method not allowed'});
+    }
+  });
+});
+
 // Import Firebase Functions and Firebase Admin SDK
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
