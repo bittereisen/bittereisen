@@ -1,8 +1,8 @@
 {
   "functions": [
     {
-      "source": "email-functions",  // Points to your function folder
-      "codebase": "email-functions",
+      "source": "functions",  // Points to your function folder
+      "codebase": "functions",
       "ignore": [
         "node_modules",
         ".git",
