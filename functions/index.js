@@ -1,7 +1,6 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const cors = require('cors')({origin: true}); // No spaces between curly braces
-const DOMPurify = require('dompurify'); // No spaces between curly braces
+const cors = require('cors')({origin: true}); // Enable CORS for all origins (no spaces between curly braces)
 
 // Initialize Firebase Admin SDK
 admin.initializeApp();
@@ -21,12 +20,7 @@ exports.submitEmail = functions.https.onRequest(async (req, res) => {
       return res.status(405).send('Method Not Allowed');
     }
 
-    let email = req.body.email;
-
-    // Sanitize the email input to remove any malicious content
-    email = DOMPurify.sanitize(email);
-
-    // Validate the email format
+    const email = req.body.email;
     if (!email || !validateEmail(email)) {
       return res.status(400).send('Invalid email');
     }
