@@ -15,7 +15,7 @@ const corsHandler = cors({origin: true});
  */
 
 exports.submitEmail = functions.https.onRequest((req, res) => {
-console.log("Function is being deployed!");
+  console.log('Function is being deployed!');
 
   // Handle preflight request (OPTIONS)
   corsHandler(req, res, async () => {
