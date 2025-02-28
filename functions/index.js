@@ -5,15 +5,16 @@ const cors = require('cors'); // Import cors module
 // Initialize Firebase Admin SDK
 admin.initializeApp();
 
-// CORS handler to allow all origins
-const corsHandler = cors({origin: true});
+// CORS handler to allow only specific origin (your website)
+const corsHandler = cors({
+  origin: 'https://www.bittereisen.com', // Fixed trailing comma
+});
 
 /**
  * Function to submit email to Firestore.
  * @param {Object} req The request object
  * @param {Object} res The response object
  */
-
 exports.submitEmail = functions.https.onRequest((req, res) => {
   console.log('Function is being deployed!');
 
