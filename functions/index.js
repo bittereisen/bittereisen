@@ -1,16 +1,8 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const cors = require('cors'); // Import cors module
 
 // Initialize Firebase Admin SDK
 admin.initializeApp();
-
-// CORS handler to allow only specific origin (your website)
-const corsHandler = cors({
-  origin: 'https://www.bittereisen.com', // Allow only this domain
-  methods: ['GET', 'POST', 'OPTIONS'], // Allow methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-});
 
 /**
  * Function to submit email to Firestore.
@@ -20,33 +12,27 @@ const corsHandler = cors({
 exports.submitEmail = functions.https.onRequest((req, res) => {
   console.log('Function is being deployed!');
 
-  // Handle preflight request (OPTIONS)
-  corsHandler(req, res, async () => {
-    if (req.method === 'OPTIONS') {
-      return res.status(204).send(''); // Respond to preflight with a 204
-    }
+  // Allow only POST requests (no CORS handling here)
+  if (req.method !== 'POST') {
+    return res.status(405).send('Method Not Allowed');
+  }
 
-    if (req.method !== 'POST') {
-      return res.status(405).send('Method Not Allowed');
-    }
+  const email = req.body.email;
+  if (!email || !validateEmail(email)) {
+    return res.status(400).send('Invalid email');
+  }
 
-    const email = req.body.email;
-    if (!email || !validateEmail(email)) {
-      return res.status(400).send('Invalid email');
-    }
-
-    try {
-      // Save email to Firestore
-      await admin.firestore().collection('emails').add({
-        email: email,
-        timestamp: admin.firestore.FieldValue.serverTimestamp(),
-      });
-      res.status(200).send('Email submitted successfully');
-    } catch (error) {
-      console.error('Error writing document: ', error);
-      res.status(500).send('Internal Server Error');
-    }
-  });
+  try {
+    // Save email to Firestore
+    admin.firestore().collection('emails').add({
+      email: email,
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+    });
+    res.status(200).send('Email submitted successfully');
+  } catch (error) {
+    console.error('Error writing document: ', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
 /**
