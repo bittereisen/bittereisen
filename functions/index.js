@@ -7,7 +7,9 @@ admin.initializeApp();
 
 // CORS handler to allow only specific origin (your website)
 const corsHandler = cors({
-  origin: 'https://www.bittereisen.com', // Fixed trailing comma
+  origin: 'https://www.bittereisen.com', // Allow only this domain
+  methods: ['GET', 'POST', 'OPTIONS'], // Allow methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
 });
 
 /**
