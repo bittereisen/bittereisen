@@ -54,10 +54,11 @@ async function sendConfirmationEmail(email) {
         sender: { name: 'BitteReisen', email: 'your-email@domain.com' },
         to: [{ email }],
         subject: 'Welcome to BitteReisen Sweepstakes!',
-        htmlContent: <p>Hi there,</p>
-                      <p>Thanks for signing up! You've successfully entered the BitteReisen sweepstakes.</p>
-                      <p>Good luck!</p>
-                      <p>Best,<br>BitteReisen Team</p>,
+	htmlContent: `<p>Hi there,</p>
+              <p>Thanks for signing up! You've successfully entered the BitteReisen sweepstakes.</p>
+              <p>Good luck!</p>
+              <p>Best,<br>BitteReisen Team</p>`,
+
       },
       {
         headers: {
