@@ -25,7 +25,7 @@
     }
 
     .hero {
-      min-height: 85vh; /* Show part of the next section */
+      min-height: 85vh;
       background-image: url('images/Front_Page_Travel_Pic.jpeg');
       background-size: cover;
       background-position: center;
@@ -36,6 +36,21 @@
       color: white;
       position: relative;
       padding: 3rem 1rem;
+    }
+
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      color: white;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
     }
 
     .hero-overlay {
@@ -53,7 +68,7 @@
     }
 
     .cta-button {
-      background-color: #007bff;
+      background-color: #4B5563;
       color: white;
       padding: 14px 28px;
       font-size: 20px;
@@ -64,18 +79,7 @@
     }
 
     .cta-button:hover {
-      background-color: #0056b3;
-    }
-
-    .highlight-free-entry {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: #FFEB3B; /* Bright yellow for emphasis */
-      background-color: #1D4ED8;
-      padding: 10px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-      margin-top: 10px;
+      background-color: #374151;
     }
 
     .promo-box {
@@ -164,7 +168,37 @@
       scroll-behavior: smooth;
     }
 
+    /* Updated Styles */
+    .hero-content h1 {
+      color: #1D4ED8; /* Darker Blue for the Heading */
+    }
+
+    .hero-content p {
+      color: #4B5563; /* Soft Gray for "Enter for FREE" */
+    }
+
+    .cta-button {
+      background-color: #4B5563; /* Darker Gray for the button */
+    }
+
+    .cta-button:hover {
+      background-color: #374151;
+    }
+
+    .promo-box p {
+      background-color: #F3F4F6; /* Light Gray for background */
+      color: #4B5563; /* Dark Gray Text for "Additional entries for $0.99" */
+      font-size: 1.4rem;
+      font-weight: 700;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    .promo-box p span {
+      color: #1D4ED8; /* Darker Blue Text for emphasis */
+    }
   </style>
+
 </head>
 <body>
 
@@ -173,7 +207,7 @@
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="text-5xl font-extrabold">Win a $500 Airfare Voucher!</h1>
-      <p class="highlight-free-entry">Enter for FREE!</p>
+      <p class="text-3xl font-semibold mt-4">Enter for FREE!</p>
       <p class="text-lg font-semibold mt-4">Additional entries start at just $0.99</p>
       <p class="font-bold uppercase">No Purchase Necessary</p>
       <a href="#sweepstakes-form">
@@ -182,22 +216,22 @@
     </div>
   </section>
 
-  <!-- Scroll Indicator -->
   <div class="scroll-down">
     <i class="fas fa-chevron-down"></i>
   </div>
-
+  
   <!-- How It Works Section -->
   <div class="promo-box">
     <h2 class="text-2xl font-bold text-blue-900">How It Works</h2>
     <p class="text-gray-700 mt-4">Enter for free! Want even more chances?</p>
-    <p class="text-lg font-semibold mt-4" style="font-size: 1.5rem; background-color: #FFEB3B; padding: 5px 10px; border-radius: 5px; color: #333; font-weight: bold; border: 1px solid #FBBF24; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);">
-      Additional entries start at just <span style="font-size: 1.8rem; color: #1D4ED8; font-weight: 700;">$0.99 each!</span>
+    
+    <p class="text-lg font-semibold mt-4" style="font-size: 1.4rem; background-color: #F3F4F6; padding: 10px 15px; border-radius: 5px; color: #4B5563; font-weight: 700;">
+      Additional entries start at just <span style="font-size: 1.6rem; color: #1D4ED8; font-weight: 700;">$0.99 each!</span>
     </p>
+
     <p class="text-gray-700 mt-4">No purchase necessary. Free entry available by mail. See <a href="terms.html" class="text-blue-600 hover:underline">Terms & Conditions</a> for details.</p>
   </div>
 
-  <!-- Additional Sections -->
   <!-- Prize Info Section -->
   <div class="promo-box">
     <h2 class="text-2xl font-bold text-blue-900">Your Chance to Win!</h2>
@@ -228,7 +262,7 @@
       <p class="success-message" id="successMessage">✅ Success! You're signed up.</p>
     </form>
   </main>
-
+  
   <!-- Footer -->
   <footer>
     <p>&copy; 2025 BitteReisen, LLC. All rights reserved.</p>
@@ -247,7 +281,7 @@
   <!-- JavaScript for form submission -->
   <script type="module">
     document.getElementById('tallyForm').addEventListener('submit', async function(event) {
-      event.preventDefault(); // Prevent default form submission
+      event.preventDefault();
 
       const emailInput = document.getElementById('email');
       const successMessage = document.getElementById('successMessage');
@@ -269,7 +303,6 @@
           successMessage.style.display = "block";
           emailInput.value = "";
 
-          // Hide message after 3 seconds
           setTimeout(() => successMessage.style.display = "none", 3000);
         } else {
           alert("Error submitting email. Please try again.");
@@ -283,4 +316,3 @@
 
 </body>
 </html>
-ZZ
