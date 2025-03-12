@@ -1,4 +1,4 @@
-ZZ<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Reddit Pixel -->
@@ -16,7 +16,161 @@ ZZ<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
   <style>
-    /* Your existing styles */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .hero {
+  min-height: 85vh; /* Show part of the next section */
+  background-image: url('images/Front_Page_Travel_Pic.jpeg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding: 3rem 1rem;
+}
+
+/* Scroll Indicator */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .cta-button {
+      background-color: #007bff;
+      color: white;
+      padding: 14px 28px;
+      font-size: 20px;
+      font-weight: 700;
+      border-radius: 10px;
+      transition: background 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      background-color: #0056b3;
+    }
+
+    .promo-box {
+      background-color: #ebf8ff;
+      padding: 20px;
+      margin: 20px auto;
+      text-align: center;
+      border-radius: 10px;
+      max-width: 700px;
+    }
+
+    .destination-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .destination-grid img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-content {
+      background-color: #ffffff;
+      padding: 40px;
+      text-align: center;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 50px auto;
+    }
+
+    .form-section input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 2px solid #ddd;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .form-submit-btn {
+      background-color: #007bff;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      transition: background 0.3s ease;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .form-submit-btn:hover {
+      background-color: #0056b3;
+    }
+
+    .success-message {
+      display: none;
+      color: #28a745;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .disclaimer {
+      background-color: #f8f9fa;
+      padding: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #555;
+      margin-top: 20px;
+      border-top: 1px solid #ddd;
+    }
+
+    html {
+  scroll-behavior: smooth;
+}
+
+
   </style>
 
 </head>
@@ -30,7 +184,6 @@ ZZ<!DOCTYPE html>
       <p class="text-3xl font-semibold mt-4">Enter for FREE!</p>
       <p class="text-lg font-semibold mt-4">Additional entries start at just $0.99</p>
       <p class="font-bold uppercase">No Purchase Necessary</p>
-      <p class="mt-4 text-xl font-semibold">Enter for free or increase your chances with additional paid entries! No purchase necessary.</p>
       <a href="#sweepstakes-form">
         <button class="cta-button">Enter Now!</button>
       </a>
@@ -47,7 +200,6 @@ ZZ<!DOCTYPE html>
     <h2 class="text-2xl font-bold text-blue-900">How It Works</h2>
     <p class="text-gray-700 mt-4">Enter for free! Want even more chances? Additional entries start at just <strong>$0.99 each</strong>!</p>
     <p class="text-gray-700 mt-4">No purchase necessary. Free entry available by mail. See <a href="terms.html" class="text-blue-600 hover:underline">Terms & Conditions</a> for details.</p>
-    <p class="mt-4 text-xl font-semibold">Enter for free or increase your chances with additional paid entries! No purchase necessary.</p>
   </div>
 
   <!-- Prize Info Section -->
@@ -72,7 +224,6 @@ ZZ<!DOCTYPE html>
   <main class="main-content" id="sweepstakes-form">
     <h2 class="text-3xl font-bold text-gray-900">Enter to Win in April 2025!</h2>
     <p class="text-gray-700 mt-2">Sign up today and be notified when the sweepstakes goes live.</p>
-    <p class="mt-4 text-xl font-semibold">Enter for free or increase your chances with additional paid entries! No purchase necessary.</p>
     <br>
     <form class="form-section" id="tallyForm">
       <label for="email" class="text-sm font-medium">Email Address:</label>
@@ -93,12 +244,16 @@ ZZ<!DOCTYPE html>
 
   <!-- Social Media Links with Custom Icons -->
   <div class="mt-4 flex justify-center">
-    <a href="https://www.instagram.com/bitte_reisen" target="_blank" class="text-blue-600 hover:underline flex items-center">
-      <i class="fab fa-instagram" style="font-size: 24px; margin-right: 10px;"></i>
-    </a>
-    <a href="https://bittereisen.bsky.social" target="_blank" class="text-blue-600 hover:underline">
-      <img src="images/bluesky-social-seeklogo.png" alt="BlueSky" style="width: 24px; height: 24px; margin-left: 10px;">
-    </a>
+   
+  <!-- Instagram Link with Font Awesome Icon -->
+  <a href="https://www.instagram.com/bitte_reisen" target="_blank" class="text-blue-600 hover:underline flex items-center">
+    <i class="fab fa-instagram" style="font-size: 24px; margin-right: 10px;"></i>
+  </a>
+      <a href="https://bittereisen.bsky.social" target="_blank" class="text-blue-600 hover:underline">
+        <img src="images/bluesky-social-seeklogo.png" alt="BlueSky" style="width: 24px; height: 24px; margin-left: 10px;">
+      </a>
+    </p>
+    
   </div>
 </footer>
 
